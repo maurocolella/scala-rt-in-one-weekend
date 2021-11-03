@@ -6,16 +6,16 @@ object App {
   def phototest(img: BufferedImage): BufferedImage =
   {
     // obtain width and height of image
-    val w = img.getWidth
-    val h = img.getHeight
+    val width = img.getWidth
+    val height = img.getHeight
 
     // create new image of the same size
-    val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
+    val out = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
 
     // copy pixels with mirroring (mirror vertically)
-    for (x <- 0 until w)
-      for (y <- 0 until h)
-        out.setRGB(x, y, img.getRGB(x, h - y - 1) & 0xffffff)
+    for (x <- 0 until width)
+      for (y <- 0 until height)
+        out.setRGB(x, y, img.getRGB(x, height - y - 1) & 0xffffff)
 
     // return
     out
